@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #0a0a0a, #3a4452);
+        }
+        .html{
+            border: 2px solid white;
+  padding: 15px;
+  border-radius: 17px;
+  background: transparent;
+  box-shadow: 0px 3px 15px gray;
+        }
+        .cbc{
+            border: none;
+  text-align: right;
+  background: transparent;
+  font-size: 36px;
+  width: 239px;
+  height: 70px;
+  cursor: pointer;
+  margin: 9px;
+  box-shadow: 0px 3px 15px black;
+  border-radius: 5px;
+  outline: 0;
+        }
+        .w1{
+            color: #fff;
+        }
+        .key button{
+            border: 0;
+  width: 50px;
+  height: 50px;
+  margin: 6px;
+  border-radius: 10px;
+  background: transparent;
+  
+  font-size: 20px;
+  box-shadow: 0 -2px 0px gray ,0 0px 0px gray,0 -2px 1px gray,0 2px 3px gray;
+  cursor: pointer
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="html">
+        <input type="text" class="cbc" placeholder=""><br>
+        <div class="key">
+        <button style="color: #6dee0a;" >AC</button>
+        <button style="color: #6dee0a;" >Del</button>
+        <button style="color: #6dee0a;" >%</button>
+        <button class="opp"style="color: #6dee0a;" >/</button>
+        </div>
+        <div class="key">
+        <button class="w1">7</button>
+        <button class="w1">8</button>
+        <button class="w1">9</button>
+        <button class="opp" style="color: #6dee0a;" >*</button>
+        </div>
+        <div class="key">
+        <button class="w1">4</button>
+        <button class="w1">5</button>
+        <button class="w1">6</button>
+        <button class="opp" style="color: #6dee0a;" >-</button>
+        </div>
+        <div class="key">
+        <button class="w1">1</button>
+        <button class="w1">2</button>
+        <button class="w1">3</button>
+        <button class="opp" style="color: #6dee0a;" >+</button>
+        </div>
+        <div class="key">
+        <button class="w1" >00</button>
+        <button class="w1" >0</button>
+        <button class="opp" style="color: #6dee0a;" >.</button>
+        <button style="background-color: #fb7c14;">=</button>
+        </div>
+    </div>
+    <script>
+        let inpp=document.querySelector(".cbc");
+        let buttt=document.querySelectorAll("button")
+        let strr = "";
+        let arr = Array.from(buttt)
+        arr.forEach(button=>{
+       button.addEventListener("click",(e)=>{
+        if(e.target.innerHTML == "="){
+            strr=eval(strr)
+        inpp.value=strr
+        }else if(e.target.innerHTML=="AC"){
+            strr="";
+            inpp.value=strr
+        }else if(e.target.innerHTML=="Del"){
+            strr  = strr.substring(0,strr.length-1);
+            inpp.value=strr
+        }
+      
+        else{
+           strr+=e.target.innerHTML;
+            inpp.value=strr;
+        }
+        
+       })
+        })
+    </script>
+</body>
+</html>
